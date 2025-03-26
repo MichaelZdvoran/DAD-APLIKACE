@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
         if (user) {
           alert("Úspěšné přihlášení!");
-          window.location.href = "/html/html.html"; // přesměrování
+          window.location.href = "/html/ticket.html"; // přesměrování
         } else {
           alert("Neplatné přihlašovací údaje.");
         }

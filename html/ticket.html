@@ -4,28 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fix IT - Ticketovací Systém</title>
-    <link rel="stylesheet" href="/styles/css.css">
-    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/ticket.css">
 </head>
 <body>
     <header>
         <h1>Fix IT</h1>
-
-        <a href=""></a>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Hlavní Stránka</a></li>
+                <li><a href="/html/aboutus.html">O Nás</a></li>
+                <li><a href="/html/support.html">Podpora</a></li>
+            </ul>
+        </nav>
     </header>
-    <main class="container">
-        <section class="form-section">
-            <h2>Vytvořit nový ticket</h2>
-            <input type="text" id="ticketTitle" placeholder="Název problému">
-            <textarea id="ticketDescription" placeholder="Popis problému"></textarea>
-            <input type="text" id="ticketEmail" placeholder="Zadejte svůj email">            
-            <button onclick="createTicket()">Odeslat ticket</button>
-        </section>
-        
-        <section class="tickets-section">
-            <h2>Vaše tickety</h2>
-            <div id="tickets"></div>
-        </section>
+    <main>
+        <div class="container">
+            <section class="form-section">
+                <h2>Vytvořit nový ticket</h2>
+                <input type="text" id="ticketTitle" placeholder="Název problému">
+                <textarea id="ticketDescription" placeholder="Popis problému"></textarea>
+                <select id="zavaznost">
+                    <option value="">Vyberte závažnost</option>
+                    <option value="Nízká">Nízká</option>
+                    <option value="Střední">Střední</option>
+                    <option value="Vysoká">Vysoká</option>
+                </select>
+                          
+                <button onclick="createTicket()">Odeslat ticket</button>
+            </section>
+            
+            <section class="tickets-section">
+                <h2>Vaše tickety</h2>
+                <div id="tickets"></div>
+            </section>
+        </div>
     </main>
     <footer>
         <p>&copy; 2025 Fix IT Ticketovací Systém</p>
