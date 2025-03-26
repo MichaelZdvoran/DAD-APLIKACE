@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -5,38 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fix IT - Registrace</title>
     <link rel="stylesheet" href="/styles/index.css">
-    <script src="/js/authsystem.js"></script>
 </head>
 <body>
+<?php include "php/db.php" ?>
     <header>
         <h1>Fix IT</h1>
         <nav>
             <ul>
-                <li><a href="/index.html">Hlavní Stránka</a></li>
-                <li><a href="/html/aboutus.html">O Nás</a></li>
-                <li><a href="/html/support.html">Podpora</a></li>
+                <li><a href="index.php">Hlavní Stránka</a></li>
+                <li><a href="aboutus.php">O Nás</a></li>
+                <li><a href="support.php">Podpora</a></li>
             </ul>
         </nav>
     </header>
     <div class="container">
         <div class="form-box">
             <h2>Registrace</h2>
-            <form id="register-form">
-                <div class="input-container">
-                    <input type="username" id="username" placeholder="Uživatelské jméno" required>
-                    <span class="icon">🏷️</span>
-                </div>
-                <div class="input-container">
-                    <input type="email" id="email" placeholder="Email" required>
-                    <span class="icon">📧</span>
-                </div>
-                <div class="input-container">
-                    <input type="password" id="password" placeholder="Password" required>
-                    <span class="icon">🔒</span>
-                </div>
+            <form action="php/register.php" method="post">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Heslo" required>
                 <button type="submit">Registrovat</button>
             </form>
-            <p>Máte účet? <a href="/index.html">Přihlásit</a></p>
+            <p>Máte účet? <a href="index.php">Přihlásit</a></p>
         </div>
     </div>
     <footer>

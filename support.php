@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -11,9 +12,9 @@
         <h1>Fix IT</h1>
         <nav>
             <ul>
-                <li><a href="/index.html">Hlavní Stránka</a></li>
-                <li><a href="/html/aboutus.html">O Nás</a></li>
-                <li><a href="/html/support.html">Podpora</a></li>
+                <li><a href="index.php">Hlavní Stránka</a></li>
+                <li><a href="aboutus.php">O Nás</a></li>
+                <li><a href="support.php">Podpora</a></li>
             </ul>
         </nav>
     </header>

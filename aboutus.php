@@ -5,36 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fix IT - Login</title>
     <link rel="stylesheet" href="/styles/index.css">
-    <script src="/js/authsystem.js"></script>
 </head>
 <body>
+<?php include "php/db.php" ?>
     <header>
         <h1>Fix IT</h1>
         <nav>
             <ul>
-                <li><a href="/index.html">Hlavní Stránka</a></li>
-                <li><a href="/html/aboutus.html">O Nás</a></li>
-                <li><a href="/html/support.html">Podpora</a></li>
+                <li><a href="index.php">Hlavní Stránka</a></li>
+                <li><a href="aboutus.php">O Nás</a></li>
+                <li><a href="support.php">Podpora</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="form-box">
-                <h2 id="form-title">Login</h2>
-                    <form id="auth-form">
-                        <div class="input-container">
-                            <input type="username" id="username" placeholder="username" required>
-                            <span class="icon">📧</span>
-                        </div>
-                        <div class="input-container">
-                            <input type="password" id="password" placeholder="Password" required>
-                            <span class="icon">🔒</span>
-                        </div>
-                        <button type="submit">Přihlásit</button>
-                    </form>
-                <p id="toggle-form">Nemáte účet? <a href="/html/registrace.html">Registrace</a></p>
-            </div>
+        <div class="container-aboutus">
+            <h2>O Nás</h2>
+            <p>
+                Vítejte v Ticket Systemu <b>Fix IT</b>, moderním a efektivním řešení pro správu požadavků a komunikaci mezi uživateli a týmem podpory. Naším cílem je zjednodušit a zpřehlednit proces řešení tiketů, ať už se jedná o technickou podporu, požadavky na změny nebo interní komunikaci.  
+                
+                <p>🔹 <b>Jednoduché používání</b> – intuitivní rozhraní, které zvládne každý  </p>
+                <p>🔹 <b>Rychlá odezva</b> – sledujte stav svých požadavků v reálném čase  </p>
+                <p>🔹 <b>Efektivní správa</b> – kategorie, priority a historie komunikace na jednom místě  </p>
+                Ať už jste součástí IT týmu, zákaznické podpory nebo spravujete interní úkoly, Ticket System Fix IT vám pomůže pracovat efektivněji.  
+                
+                <p><b>📩 Máte otázky?</b> Kontaktujte nás a rádi vám pomůžeme!  </p>
+            </p>
         </div>
     </main>
     <footer>
