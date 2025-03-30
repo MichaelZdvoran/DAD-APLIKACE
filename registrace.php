@@ -9,14 +9,16 @@
 </head>
 <body>
 <?php include "php/db.php" ?>
-    <header>
-        <h1>Fix IT</h1>
-        <nav>
-            <ul>
-                <li><a href="index.php">Hlavní Stránka</a></li>
-                <li><a href="aboutus.php">O Nás</a></li>
-            </ul>
-        </nav>
+<header>
+        <div class="header-left">
+            <h1>Fix IT</h1>
+            <nav>
+                <ul>
+                    <li><a href="ticket.php">Správa Ticketů</a></li>
+                    <li><a href="aboutus.php">O Nás</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <div class="container">
         <div class="form-box">

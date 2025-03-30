@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);  // Odstraní mezery na začátku a konci e-mailu
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    if (!str_contains($email, '@souepl')) {
+    if (!str_contains($email, 'souepl')) {
         die("Registrace povolena pouze pro @souepl e-maily.");
     }
 

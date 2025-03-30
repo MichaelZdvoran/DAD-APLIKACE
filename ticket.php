@@ -19,7 +19,7 @@ require "php/db.php";
             <h1>Fix IT</h1>
             <nav>
                 <ul>
-                    <li><a href="index.php">Hlavní Stránka</a></li>
+                    <li><a href="ticket.php">Správa Ticketů</a></li>
                     <li><a href="aboutus.php">O Nás</a></li>
                 </ul>
             </nav>
@@ -28,12 +28,14 @@ require "php/db.php";
         <div class="user-container">
             <?php if (isset($_SESSION['user_email'])): ?>
                 <span class="user-email"><?php echo htmlspecialchars($_SESSION['user_email']); ?></span>
+                <span class="user-role"><?php echo htmlspecialchars($_SESSION['role']); ?></span> <!-- Zobrazení role -->
                 <a href="php/logout.php" class="logout-btn">Odhlásit se</a>
             <?php else: ?>
                 <a href="index.php">Přihlásit se</a>
             <?php endif; ?>
         </div>
     </header>
+
 
 
     <main>
