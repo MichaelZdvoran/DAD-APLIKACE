@@ -9,29 +9,33 @@ require "php/db.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fix IT - Ticketovací Systém</title>
-    <link rel="stylesheet" href="/styles/ticket.css">
+    <link rel="stylesheet" href="styles/ticket.css?v=<?php echo time(); ?>">
+
 </head>
 <body>
 <?php include "php/db.php" ?>
     <header>
-        <h1>Fix IT</h1>
-        <nav>
-            <ul>
-                <li><a href="index.php">Hlavní Stránka</a></li>
-                <li><a href="aboutus.php">O Nás</a></li>
-                <li><a href="support.php">Podpora</a></li>
-            </ul>
-        </nav>
-        
-        <div class="user-info">
+        <div class="header-left">
+            <h1>Fix IT</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.php">Hlavní Stránka</a></li>
+                    <li><a href="aboutus.php">O Nás</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="user-container">
             <?php if (isset($_SESSION['user_email'])): ?>
-                <span><?php echo htmlspecialchars($_SESSION['user_email']); ?></span>
+                <span class="user-email"><?php echo htmlspecialchars($_SESSION['user_email']); ?></span>
                 <a href="php/logout.php" class="logout-btn">Odhlásit se</a>
             <?php else: ?>
                 <a href="index.php">Přihlásit se</a>
             <?php endif; ?>
         </div>
     </header>
+
+
     <main>
         <div class="container">
             <section class="form-section">
@@ -39,33 +43,47 @@ require "php/db.php";
                 <form action="php/tickets.php" method="post">
                     <input type="text" name="title" placeholder="Název ticketu" required>
                     <textarea name="description" placeholder="Popis problému" required></textarea>
+                    <select name="severity" id="zavaznost" required>
+                     <option value="">Vyberte závažnost</option>
+                     <option value="Nízká">Nízká</option>
+                     <option value="Střední">Střední</option>
+                     <option value="Vysoká">Vysoká</option>
+                 </select>
                     <button type="submit">Vytvořit ticket</button>
                 </form>
             </section>
             
             <section class="tickets-section">
-                <h2>Vaše tickety</h2>
-                <div id="tickets"></div>
-                <?php
-                    require 'php/db.php';
-                    session_start();
+                <div class="tickets-header">
+                    <h2>Vaše tickety</h2>
+                </div>
+                
+                <!-- Přidáme nový kontejner pro scrollování -->
+                <div class="tickets-list">
+                    <?php
+                        if (!isset($_SESSION['user_id'])) {
+                            header("Location: index.php");
+                            exit;
+                        }
 
-                    if (!isset($_SESSION['user_id'])) {
-                        header("Location: index.php");
-                        exit;
-                    }
+                        $user_id = $_SESSION['user_id'];
+                        $stmt = $pdo->prepare("SELECT * FROM tickets WHERE user_id = ?");
+                        $stmt->execute([$user_id]);
+                        $tickets = $stmt->fetchAll();
 
-                    $user_id = $_SESSION['user_id'];
-                    $stmt = $pdo->prepare("SELECT * FROM tickets WHERE user_id = ?");
-                    $stmt->execute([$user_id]);
-                    $tickets = $stmt->fetchAll();
-
-                    foreach ($tickets as $ticket) {
-                        echo "<div><h3>{$ticket['title']}</h3><p>{$ticket['description']}</p><p>Status: {$ticket['status']}</p></div>";
-                    }
+                        foreach ($tickets as $ticket) {
+                            echo "<div class='ticket'>
+                                    <h3>{$ticket['title']}</h3>
+                                    <p>{$ticket['description']}</p>
+                                    <p><strong>Závažnost:</strong> {$ticket['severity']}</p>
+                                    <p><strong>Status:</strong> {$ticket['status']}</p>
+                                </div>";
+                        }
                     ?>
+                </div>
 
             </section>
+
         </div>
     </main>
     <footer>

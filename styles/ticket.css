@@ -2,22 +2,59 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #111 url('/pngs/FixIT_background.jpg') no-repeat center center fixed;
+    background: #111 url('/pngs/491362538070.jpg') no-repeat center center fixed;
     background-size: cover;
 }
   
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     background: #33333393;
     color: white;
-    text-align: center;
-    padding: 1px;
-    font-size: 24px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    margin: auto; /* Zarovnání na střed */
 }
 
-main{
-    
+.header-left {
+    display: flex;
+    align-items: center;
 }
+
+.header-left nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-email {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.logout-btn {
+    background: #ff4444;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #cc0000;
+}
+
+
 
 header h1{
     font-size: 30px;
@@ -43,17 +80,26 @@ header nav ul li a {
     
 }
   
-.container h2{
+.form-section h2{
     display: flex;
     justify-content: center;
     font-size: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.container {
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
     display: flex;
     flex-direction: row;
     width: 800px;
-    margin: 20px auto;
+    margin: 30px auto;
+    max-height: 500px;
     background: rgba(255, 255, 255, 0.199);
     padding: 20px;
     color: white;
@@ -66,21 +112,72 @@ header nav ul li a {
     display: flex;
     flex-direction: column;
     width: 400px;
-    gap: 15px;
 }
 
-.tickets-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 400px;
+.tickets-section {
+    width: 100%;
+    max-width: 450px; /* Nebo jinou šířku, jakou chceš */
+    margin: 0 auto;
+}
+
+.tickets-header {
+    position: sticky;
+    top: 0;
+    color: white;
+
+    text-align: center;
+    font-weight: bold;
+    z-index: 10;
+    font-size: 22px;
+}
+
+.tickets-list {
+    max-height: 254px; /* Omezíme výšku */
+    overflow-y: auto;  /* Povolený vertikální scroll */
+    color: white;
+    padding: 10px;
+}
+
+.ticket {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Pro lepší viditelnost, můžeš odstranit */
+}
+
+  
+.ticket h3 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #ffffff;
+}
+  
+.ticket p {
+    margin: 5px 0;
+    color: #ffffff;
+}
+  
+.ticket strong {
+    color: #ffffff;
+}
+  
+.ticket .status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #e0f2f1;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 0.9em;
 }
 
 textarea{
     display: block;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     padding: 10px;
     border-radius: 5px;
     font-size: 16px;
@@ -89,7 +186,7 @@ textarea{
 
 .container a{
     text-decoration: none;
-    color: rgb(51, 255, 0);
+    color: #ffffff;
 }
 
 .input-container {
@@ -106,21 +203,30 @@ input {
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.2);
     color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+}
+
+select{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 input::placeholder {
-    color: rgb(51, 255, 0);
+    color: #ffffff;
 }
 
 textarea::placeholder{
     text-decoration: none;
-    color: rgb(51, 255, 0);
+    color: #ffffff;
 }
 
 select{
     background-color: #ffffff28;
     text-decoration: none;
-    color: rgb(51, 255, 0);
+    color: #ffffff;
 }
 
 select option{
@@ -160,42 +266,6 @@ button:hover {
 }
 
   
-.ticket {
-    background-color: #fff;
-    border-left: 5px solid #4caf50;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    color: #000;
-    width: 200px;
-}
-  
-.ticket h3 {
-    margin: 0;
-    font-size: 1.1em;
-    color: #000;
-}
-  
-.ticket p {
-    margin: 5px 0;
-    color: #000;
-}
-  
-.ticket strong {
-    color: #000;
-}
-  
-.ticket .status {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #e0f2f1;
-    color: #2e7d32;
-    font-weight: bold;
-    border-radius: 5px;
-    font-size: 0.9em;
-}
   
 footer {
     text-align: center;

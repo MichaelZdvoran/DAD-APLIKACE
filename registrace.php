@@ -15,7 +15,6 @@
             <ul>
                 <li><a href="index.php">Hlavní Stránka</a></li>
                 <li><a href="aboutus.php">O Nás</a></li>
-                <li><a href="support.php">Podpora</a></li>
             </ul>
         </nav>
     </header>

@@ -10,14 +10,15 @@
 <body>
     <?php include "php/db.php" ?>
     <header>
-        <h1>Fix IT</h1>
-        <nav>
-            <ul>
-                <li><a href="index.php">Hlavní Stránka</a></li>
-                <li><a href="aboutus.php">O Nás</a></li>
-                <li><a href="support.php">Podpora</a></li>
-            </ul>
-        </nav>
+        <div class="header-left">
+            <h1>Fix IT</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.php">Hlavní Stránka</a></li>
+                    <li><a href="aboutus.php">O Nás</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
         <div class="container">
