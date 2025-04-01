@@ -272,6 +272,28 @@ button:hover {
     max-width: 600px;
     margin: 20px auto;
     background-color: #f9f9f9;
+    color: black;
+    overflow-y: auto;
+    max-height: 250px;
+    scroll-behavior: smooth;
+}
+
+.chat-container::-webkit-scrollbar {
+    width: 8px; /* Šířka scrollbaru */
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Barva pozadí */
+    border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: #888; /* Barva posuvníku */
+    border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Barva při hoveru */
 }
 
 .message {

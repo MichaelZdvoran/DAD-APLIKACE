@@ -1,31 +1,20 @@
 <?php
-// Předpokládáme, že db.php obsahuje správné připojení k databázi
 require 'php/db.php';
+session_start();
 
-// Získání ticket_id z URL
 $ticket_id = $_GET['ticket_id']; // Tohle získává ticket_id z URL
 
-// Debugging pro ticket_id
-var_dump($ticket_id);  // Zobrazí, jestli ticket_id je správně získáno
-
-// Načítání zpráv pro tento ticket_id
-$sql = "SELECT m.message, m.created_at, u.username 
+$sql = "SELECT m.message, m.created_at, u.id
         FROM messages m
         JOIN users u ON m.user_id = u.id
         WHERE m.ticket_id = ? 
         ORDER BY m.created_at ASC";
 $stmt = $pdo->prepare($sql);
 
-// Debugging SQL dotazu
-var_dump($stmt);  // Zobrazí, zda dotaz byl správně připraven
-
 $stmt->execute([$ticket_id]);
 
-// Načítání zpráv
-$messages = $stmt->fetchAll();
 
-// Debugging pro výsledky
-var_dump($messages);  // Zobrazí všechny zprávy pro ticket
+$messages = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +53,7 @@ var_dump($messages);  // Zobrazí všechny zprávy pro ticket
 <div class="chat-container">
     <?php foreach ($messages as $message): ?>
         <div class="message">
-            <strong><?php echo htmlspecialchars($message['username']); ?>:</strong>
+            <strong><?php echo htmlspecialchars($message['id']); ?>:</strong>
             <p><?php echo htmlspecialchars($message['message']); ?></p>
             <small><?php echo $message['created_at']; ?></small>
         </div>

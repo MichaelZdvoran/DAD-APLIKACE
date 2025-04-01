@@ -66,8 +66,8 @@ $tickets = $stmt->fetchAll();
                                 foreach ($tickets as $ticket) {
                                     echo "<div class='ticket'>
                                             <p><strong>{$ticket['title']}</strong> - {$ticket['status']}</p>
-                                            <a href='ticket_detail.php?id={$ticket['ticket_id']}'>Zobrazit detail</a>
-                                            <a href='ticket_detail.php?id={$ticket['ticket_id']}&action=respond'>Odpovědět</a> <!-- Tlačítko pro odpověď -->
+                                            <a href='ticket_detail.php?ticket_id={$ticket['ticket_id']}'>Zobrazit detail</a>
+                                            <a href='ticket_detail.php?ticket_id={$ticket['ticket_id']}&action=respond'>Odpovědět</a> <!-- Tlačítko pro odpověď -->
                                         </div>";
                                 }
 
