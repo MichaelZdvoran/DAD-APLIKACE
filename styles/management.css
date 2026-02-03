@@ -135,7 +135,7 @@ main{
   
 .ticket p {
     margin: 5px 0;
-    color: #ffffff;
+    color: #c2c2c2;
 }
   
 .ticket strong {
@@ -153,6 +153,26 @@ main{
     font-size: 0.9em;
 }
 
+.container a{
+    background-color: rgb(0, 153, 255);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    justify-content: center;
+    font-size: 0.8em;
+}
+
+.container a:hover{
+    background-color: rgb(0, 89, 148);
+}
 
 button {
     width: 100%;
@@ -160,8 +180,6 @@ button {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    padding: 7px 2px 7px 2px;
-    border: 1px solid #ccc;
     border-radius: 5px;
 }
 

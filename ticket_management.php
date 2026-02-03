@@ -61,17 +61,18 @@ $tickets = $stmt->fetchAll();
                             <input type="hidden" name="ticket_id" value="<?php echo $ticket['ticket_id']; ?>">
                             <button type="submit" name="action" value="close">Uzavřít</button>
                             <button type="submit" name="action" value="delete">Smazat</button>
-                            
                             <?php
                                 foreach ($tickets as $ticket) {
-                                    echo "<div class='ticket'>
-                                            <p><strong>{$ticket['title']}</strong> - {$ticket['status']}</p>
+                                    echo "
+
                                             <a href='ticket_detail.php?ticket_id={$ticket['ticket_id']}'>Zobrazit detail</a>
-                                            <a href='ticket_detail.php?ticket_id={$ticket['ticket_id']}&action=respond'>Odpovědět</a> <!-- Tlačítko pro odpověď -->
-                                        </div>";
+                                           
+                                        ";
                                 }
 
                             ?>
+
+                            
                             
                         </form>
                     </div>

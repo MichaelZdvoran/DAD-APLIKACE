@@ -53,19 +53,24 @@ $messages = $stmt->fetchAll();
 <div class="chat-container">
     <?php foreach ($messages as $message): ?>
         <div class="message">
-            <strong><?php echo htmlspecialchars($message['id']); ?>:</strong>
-            <p><?php echo htmlspecialchars($message['message']); ?></p>
-            <small><?php echo $message['created_at']; ?></small>
+            <div class="message-content">
+                <strong><?php echo htmlspecialchars($message['id']); ?>:</strong>
+                <p><?php echo htmlspecialchars($message['message']); ?></p>
+            </div>
+            <div class="message-time">
+                <small><?php echo $message['created_at']; ?></small>
+            </div>
         </div>
     <?php endforeach; ?>
 </div>
 
-<h3>Přidej novou odpověď</h3>
-<form action="php/respond_to_ticket.php" method="POST">
-    <textarea name="message" rows="4" cols="50" required></textarea><br>
-    <button type="submit">Odeslat</button>
-    <input type="hidden" name="ticket_id" value="<?php echo htmlspecialchars($ticket_id); ?>">
-</form>
+<div class="response-form">
+    <form action="php/respond_to_ticket.php" method="POST">
+        <textarea name="message" rows="4" cols="50" required></textarea><br>
+        <button type="submit">Odeslat</button>
+        <input type="hidden" name="ticket_id" value="<?php echo htmlspecialchars($ticket_id); ?>">
+    </form>
+</div>
 
 </body>
 </html>

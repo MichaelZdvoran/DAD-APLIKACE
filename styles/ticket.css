@@ -269,12 +269,12 @@ button:hover {
 .chat-container {
     border: 1px solid #ddd;
     padding: 10px;
-    max-width: 600px;
+    width: 800px;
+    height: 450px;
     margin: 20px auto;
     background-color: #f9f9f9;
     color: black;
     overflow-y: auto;
-    max-height: 250px;
     scroll-behavior: smooth;
 }
 
@@ -300,6 +300,44 @@ button:hover {
     border-bottom: 1px solid #ddd;
     padding: 10px;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 5;
+    justify-content: space-between;
+
+}
+
+.message-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.message small{
+    color: gray;
+    display: flex;
+    z-index: 1;
+}
+
+.response-form {
+    display: flex;
+    justify-content: center;
+
+}
+
+.response-form form{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.response-form button{
+    height: 70px;
+    width: 70px;
 }
 
 textarea {
@@ -307,6 +345,9 @@ textarea {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
   
