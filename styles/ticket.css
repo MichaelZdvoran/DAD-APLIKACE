@@ -175,6 +175,27 @@ main{
     font-size: 0.9em;
 }
 
+.ticket a{  
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 7px 2px 7px 2px;
+    border-radius: 5px;
+    background: rgb(0, 153, 255);;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.ticket a:hover {
+    background-color: rgb(0, 89, 148);
+}
+
 textarea{
     display: block;
     width: 100%;
@@ -408,5 +429,3 @@ textarea:focus {
     border-color: #28a745;
     box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
 }
-
-  

@@ -32,7 +32,7 @@ $messages = $stmt->fetchAll();
         <h1>Fix IT</h1>
         <nav>
             <ul>
-                <li><a href="ticket.php">Tickety</a></li>
+                <li><a href="ticket_management.php">Správa Ticketů</a></li>
                 <li><a href="aboutus.php">O Nás</a></li>
             </ul>
         </nav>
@@ -49,7 +49,7 @@ $messages = $stmt->fetchAll();
     </div>
 </header>
 
-<h2>Detail Ticketu #<?php echo htmlspecialchars($ticket_id); ?></h2>
+<h2>Detail Tiketu #<?php echo htmlspecialchars($ticket_id); ?></h2>
 
 <div class="chat-container">
     <?php foreach ($messages as $message): ?>
@@ -66,7 +66,7 @@ $messages = $stmt->fetchAll();
 </div>
 
 <div class="response-form">
-    <form action="php/respond_to_ticket.php" method="POST">
+    <form action="php/respond_to_ticket_admin.php" method="POST">
         <textarea name="message" rows="4" cols="50" required></textarea><br>
         <button type="submit">Odeslat</button>
         <input type="hidden" name="ticket_id" value="<?php echo htmlspecialchars($ticket_id); ?>">

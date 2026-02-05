@@ -29,7 +29,7 @@ $tickets = $stmt->fetchAll();
             <h1>Fix IT</h1>
             <nav>
                 <ul>
-                    <li><a href="ticket.php">Správa Ticketů</a></li>
+                    <li><a href="ticket_management.php">Správa Ticketů</a></li>
                     <li><a href="aboutus.php">O Nás</a></li>
                 </ul>
             </nav>
@@ -65,7 +65,7 @@ $tickets = $stmt->fetchAll();
                                 foreach ($tickets as $ticket) {
                                     echo "
 
-                                            <a href='ticket_detail.php?ticket_id={$ticket['ticket_id']}'>Zobrazit detail</a>
+                                            <a href='ticket_detail_admin.php?ticket_id={$ticket['ticket_id']}'>Zobrazit detail</a>
                                            
                                         ";
                                 }

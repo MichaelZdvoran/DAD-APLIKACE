@@ -19,7 +19,7 @@ require "php/db.php";
             <h1>Fix IT</h1>
             <nav>
                 <ul>
-                    <li><a href="ticket.php">Správa Ticketů</a></li>
+                    <li><a href="ticket.php">Tickety</a></li>
                     <li><a href="aboutus.php">O Nás</a></li>
                 </ul>
             </nav>
@@ -79,6 +79,7 @@ require "php/db.php";
                                     <p>{$ticket['description']}</p>
                                     <p><strong>Závažnost:</strong> {$ticket['severity']}</p>
                                     <p><strong>Status:</strong> {$ticket['status']}</p>
+                                    <a href='ticket_detail.php?ticket_id={$ticket['ticket_id']}'>Zobrazit detail</a>
                                 </div>";
                         }
                     ?>

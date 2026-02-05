@@ -14,7 +14,7 @@
             <h1>Fix IT</h1>
             <nav>
                 <ul>
-                    <li><a href="ticket.php">Správa Ticketů</a></li>
+                    <li><a href="ticket.php">Tickety</a></li>
                     <li><a href="aboutus.php">O Nás</a></li>
                 </ul>
             </nav>
