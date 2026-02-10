@@ -329,6 +329,12 @@ button:hover {
 
 }
 
+.admin-user {
+    color: red;
+    font-weight: bold;
+}
+
+
 .message-content {
     display: flex;
     flex-direction: row;

@@ -4,11 +4,18 @@ session_start();
 
 $ticket_id = $_GET['ticket_id']; // Tohle získává ticket_id z URL
 
-$sql = "SELECT m.message, m.created_at, u.email
+$sql = "SELECT 
+            m.message, 
+            m.created_at, 
+            u.email, 
+            r.name AS role
         FROM messages m
         JOIN users u ON m.user_id = u.id
+        JOIN roles r ON u.role_id = r.id
         WHERE m.ticket_id = ? 
         ORDER BY m.created_at ASC";
+
+
 
 $stmt = $pdo->prepare($sql);
 
@@ -51,11 +58,22 @@ $messages = $stmt->fetchAll();
 
 <h2>Detail Tiketu #<?php echo htmlspecialchars($ticket_id); ?></h2>
 
-<div class="chat-container">
+<div class="chat-container" id="chatBox">
     <?php foreach ($messages as $message): ?>
         <div class="message">
             <div class="message-content">
-                <strong><?php echo htmlspecialchars($message['email']); ?>:</strong>
+ 
+                <?php
+                $isAdmin = $message['role'] === 'it_worker';
+                ?>
+                <strong class="<?php echo $isAdmin ? 'admin-user' : ''; ?>">
+                    <?php if ($isAdmin): ?>
+                        🔧 —
+                    <?php endif; ?>
+                    <?php echo htmlspecialchars($message['email']); ?>:
+                </strong>
+
+
                 <p><?php echo htmlspecialchars($message['message']); ?></p>
             </div>
             <div class="message-time">
@@ -72,6 +90,13 @@ $messages = $stmt->fetchAll();
         <input type="hidden" name="ticket_id" value="<?php echo htmlspecialchars($ticket_id); ?>">
     </form>
 </div>
+
+<script>
+const chatBox = document.getElementById("chatBox");
+if (chatBox) {
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+</script>
 
 </body>
 </html>
